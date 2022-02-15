@@ -40,17 +40,19 @@ class GameBG extends HTMLElement {
     connectedCallback(){
         this.shadowRoot.appendChild(template_bg.content.cloneNode(true)); //use the template to make a clone
 
-      if(this.getAttribute('img')){
-        this.shadowRoot.querySelector('#bg > img').onClick = () => this.changeBG();
-      }
+        if(this.getAttribute('img')){
+          this.shadowRoot.querySelector('img').innerText = this.getAttribute('img');
+        }
     }
 
+
     //To-do - CREATE THE FUNCTIONALITIES HERE!
-    changeBG(){
-      this.shadowRoot.querySelector('#bg > img').src = './imgs/valley.svg';
+    changeBG(bg=`.img/valley.svg`){
+      this.shadowRoot.querySelector('#bg > img').src= bg;
+    }
   
     }
-}
+
 
 //MUST HAVE - define the tag for the custom elements
 customElements.define("game-bg", GameBG)

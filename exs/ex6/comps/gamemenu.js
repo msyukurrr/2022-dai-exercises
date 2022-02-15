@@ -39,10 +39,11 @@ class GameMenu extends HTMLElement {
         this.shadowRoot.querySelector('#name').innerText = this.getAttribute('name');
         }
 
-        this.shadowRoot.querySelector('menu').onClick = () => document.querySelector('#gamebg').changeBG();
+        this.shadowRoot.querySelector('menu').onClick = () => document.querySelector('#gamebg')
+        .changeBG(`./imgs/${this.getAttribute('name')}.svg`); 
     }
 
-
+    
 
 
 
