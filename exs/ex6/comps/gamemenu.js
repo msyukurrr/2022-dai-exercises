@@ -3,7 +3,19 @@ var template_menu = document.createElement("template"); //<template> </template>
 
 //To-do - CREATE THE UI HERE!
 template_menu.innerHTML = `
+
+<style>
+.menu {
+    color: white;
+    display:flex;
+    padding: 10px;
+}
+
+</style>
 <div class='menu'>
+    <div id='name'>snow</div>
+
+    
 
 </div>
 `;
@@ -22,9 +34,20 @@ class GameMenu extends HTMLElement {
     //MUST HAVE - FUNCTION THAT RUNS AFTER IT'S CONNECTED
     connectedCallback(){
         this.shadowRoot.appendChild(template_menu.content.cloneNode(true)); //use the template to make a clone
+    
+        if(this.getAttribute('name')){
+        this.shadowRoot.querySelector('#name').innerText = this.getAttribute('name');
+        }
+
+        this.shadowRoot.querySelector('menu').onClick = () => document.querySelector('#gamebg').changeBG();
     }
 
+
+
+
+
     //To-do - CREATE THE FUNCTIONALITIES HERE!
+
 }
 
 //MUST HAVE - define the tag for the custom elements
